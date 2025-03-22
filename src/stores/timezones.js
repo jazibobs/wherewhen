@@ -2,14 +2,36 @@ import { defineStore } from 'pinia'
 
 const STORAGE_KEY = 'wherewhen-cities'
 
+const DEFAULT_CITIES = [
+  {
+    id: 1,
+    city: 'Manchester, UK',
+    nickname: 'Manchester',
+    timezone: 'Europe/London',
+    countryCode: 'GB',
+  },
+  {
+    id: 2,
+    city: 'Beijing, China',
+    nickname: 'Beijing',
+    timezone: 'Asia/Shanghai',
+    countryCode: 'CN',
+  },
+]
+
 // Helper function to load cities from localStorage
 const loadCitiesFromStorage = () => {
   try {
     const savedCities = localStorage.getItem(STORAGE_KEY)
-    return savedCities ? JSON.parse(savedCities) : []
+    // If no cities in storage, return default cities
+    if (!savedCities) {
+      saveCitiesToStorage(DEFAULT_CITIES) // Save defaults to storage
+      return DEFAULT_CITIES
+    }
+    return JSON.parse(savedCities)
   } catch (error) {
     console.error('Error loading cities from storage:', error)
-    return []
+    return DEFAULT_CITIES // Return defaults on error
   }
 }
 
