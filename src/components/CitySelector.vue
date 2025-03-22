@@ -11,7 +11,7 @@ const nickname = ref('')
 const selectedPlace = ref(null)
 const timezone = ref('')
 const isOpen = ref(false)
-const apiKey = 'AIzaSyANmUEXFV-UlHz-rs0GKnhx4Iv-FMKwJhY'
+const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
 const emit = defineEmits(['city-selected'])
 
