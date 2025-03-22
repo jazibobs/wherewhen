@@ -41,14 +41,18 @@ const closeAboutPopup = () => {
         <li>
           <button
             @click.stop="isAboutOpen = true"
-            class="about-link underline hover:text-blue-500 transition-colors"
+            class="about-link cursor-pointer underline hover:text-blue-500 transition-colors"
             aria-label="About Where When"
           >
             About
           </button>
         </li>
         <li>
-          <a href="https://github.com/jazibobs/wherewhen">GitHub</a>
+          <a
+            class="cursor-pointer underline hover:text-blue-500 transition-colors"
+            href="https://github.com/jazibobs/wherewhen"
+            >GitHub</a
+          >
         </li>
         <li>
           <a
