@@ -5,15 +5,15 @@ const STORAGE_KEY = 'wherewhen-cities'
 const DEFAULT_CITIES = [
   {
     id: 1,
-    city: 'Manchester, UK',
-    nickname: 'Manchester',
+    city: 'Manchester',
+    nickname: '',
     timezone: 'Europe/London',
     countryCode: 'GB',
   },
   {
     id: 2,
-    city: 'Beijing, China',
-    nickname: 'Beijing',
+    city: 'Beijing',
+    nickname: '',
     timezone: 'Asia/Shanghai',
     countryCode: 'CN',
   },

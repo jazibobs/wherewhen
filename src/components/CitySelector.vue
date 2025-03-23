@@ -57,19 +57,52 @@ const debounce = (fn, delay) => {
 
 const getTimezoneFromCoordinates = async (location) => {
   try {
-    const response = await fetch(
-      `https://maps.googleapis.com/maps/api/timezone/json?location=${location.latitude},${location.longitude}&timestamp=${Math.floor(
-        Date.now() / 1000,
-      )}&key=${apiKey}`,
-    )
+    const url = `https://maps.googleapis.com/maps/api/timezone/json?location=${location.latitude},${location.longitude}&timestamp=${Math.floor(
+      Date.now() / 1000,
+    )}&key=${apiKey}`
+
+    const response = await fetch(url)
     const data = await response.json()
+
+    // Log the response for debugging (excluding the API key)
+    const debugUrl = url.split('&key=')[0]
+    console.log('Timezone API URL:', debugUrl)
+    console.log('Timezone API response:', data)
+
     if (data.status === 'OK') {
       return data.timeZoneId
     }
-    throw new Error('Failed to get timezone')
+
+    // More descriptive error based on the status
+    let errorMessage = 'Failed to get timezone: '
+    switch (data.status) {
+      case 'INVALID_REQUEST':
+        errorMessage += 'Invalid request parameters'
+        break
+      case 'OVER_DAILY_LIMIT':
+        errorMessage += 'API quota exceeded'
+        break
+      case 'OVER_QUERY_LIMIT':
+        errorMessage += 'Too many requests, please try again later'
+        break
+      case 'REQUEST_DENIED':
+        errorMessage += 'API key is invalid or request was denied'
+        break
+      case 'ZERO_RESULTS':
+        errorMessage += 'No timezone found for this location'
+        break
+      default:
+        errorMessage += `${data.status || 'Unknown error'} - ${data.errorMessage || ''}`
+    }
+    throw new Error(errorMessage)
   } catch (err) {
-    console.error('Error getting timezone:', err)
-    throw err
+    // If it's our custom error, pass it through
+    if (err.message.startsWith('Failed to get timezone:')) {
+      throw err
+    }
+    // For network or other errors
+    console.error('Network or parsing error:', err)
+    throw new Error(`Failed to get timezone: Network or server error - ${err.message}`)
   }
 }
 
