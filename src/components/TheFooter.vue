@@ -4,7 +4,7 @@
   >
     <p>
       A productivity tool by
-      <a class="underline" href="https://www.jaredrigby.co.uk">Jared Rigby</a> and
+      <a class="underline" href="https://www.jaredrigby.co.uk">Jared Rigby</a> /
       <a class="underline" href="https://www.gameful.dev">Gameful</a>
     </p>
   </footer>
