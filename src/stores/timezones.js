@@ -6,14 +6,14 @@ const DEFAULT_CITIES = [
   {
     id: 1,
     city: 'Manchester',
-    nickname: '',
+    nickname: 'Manchester',
     timezone: 'Europe/London',
     countryCode: 'GB',
   },
   {
     id: 2,
     city: 'Beijing',
-    nickname: '',
+    nickname: 'Beijing',
     timezone: 'Asia/Shanghai',
     countryCode: 'CN',
   },
