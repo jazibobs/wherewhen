@@ -1,3 +1,6 @@
+[[plugins]]
+package = "@netlify/plugin-functions-install-core"
+
 [build]
   functions = "functions"
   publish = "dist"
@@ -5,3 +8,5 @@
 [dev]
   functions = "functions"
   publish = "dist" 
+
+
