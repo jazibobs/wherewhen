@@ -59,10 +59,10 @@ onUnmounted(() => {
   <div class="">
     <div
       v-if="timezoneStore.cities.length > 0"
-      class="fixed top-20 left-0 right-0 bottom-20 z-50 space-y-4 flex items-center justify-center"
+      class="md:fixed top-20 left-0 right-0 bottom-20 z-50 space-y-4 flex items-center justify-center"
     >
       <!-- City listings -->
-      <ul class="px-8 py-4 flex flex-row gap-4">
+      <ul class="px-8 py-4 flex flex-col md:flex-row gap-4 w-full justify-center">
         <li
           v-for="city in sortedCities"
           :key="city.id"

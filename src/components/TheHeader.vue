@@ -33,9 +33,9 @@ const closeAboutPopup = () => {
 
 <template>
   <header
-    class="flex justify-between items-center p-4 h-20 bg-white/50 backdrop-blur-sm fixed top-0 left-0 right-0 z-50"
+    class="flex flex-col md:flex-row justify-between items-center p-4 md:h-20 bg-white/50 backdrop-blur-sm md:fixed top-0 left-0 right-0 z-50"
   >
-    <h1 class="text-2xl font-semibold">Where When</h1>
+    <h1 class="text-2xl font-semibold my-2 md:my-0">Where When</h1>
     <nav>
       <ul class="flex gap-6 items-center">
         <li>

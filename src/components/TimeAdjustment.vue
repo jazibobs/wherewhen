@@ -36,7 +36,9 @@ const formattedTimeOffset = computed(() => {
 </script>
 <template>
   <!-- Time adjustment controls -->
-  <div class="fixed bottom-28 left-0 right-0 z-50 flex flex-col gap-2 justify-center items-center">
+  <div
+    class="md:fixed mt-8 md:mt-0 bottom-28 left-0 right-0 z-50 flex flex-col gap-2 justify-center items-center"
+  >
     <div class="flex items-center gap-4">
       <div class="flex items-center gap-2">
         <button

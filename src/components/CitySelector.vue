@@ -251,7 +251,7 @@ const handleSubmit = () => {
   <!-- Fixed position button -->
   <button
     @click.stop="isOpen = true"
-    class="add-city-button fixed bottom-13 right-8 cursor-pointer bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition-colors z-[100]"
+    class="add-city-button fixed bottom-8 md:bottom-13 right-8 cursor-pointer bg-blue-500 text-white p-4 rounded-full shadow-xl hover:bg-blue-600 transition-colors z-[100]"
     aria-label="Add new city"
   >
     <svg
