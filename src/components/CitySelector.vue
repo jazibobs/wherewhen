@@ -57,16 +57,18 @@ const debounce = (fn, delay) => {
 
 const getTimezoneFromCoordinates = async (location) => {
   try {
-    const url = `https://maps.googleapis.com/maps/api/timezone/json?location=${location.latitude},${location.longitude}&timestamp=${Math.floor(
-      Date.now() / 1000,
-    )}&key=${apiKey}`
+    const response = await fetch('/.netlify/functions/getTimezone', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        latitude: location.latitude,
+        longitude: location.longitude,
+      }),
+    })
 
-    const response = await fetch(url)
     const data = await response.json()
-
-    // Log the response for debugging (excluding the API key)
-    const debugUrl = url.split('&key=')[0]
-    console.log('Timezone API URL:', debugUrl)
     console.log('Timezone API response:', data)
 
     if (data.status === 'OK') {
