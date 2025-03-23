@@ -1,6 +1,6 @@
-const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args))
+import fetch from 'node-fetch'
 
-exports.handler = async function (event) {
+export const handler = async function (event) {
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' }
