@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch } from 'vue'
+import kofi from '@/assets/kofi.png'
 
 const isAboutOpen = ref(false)
 
@@ -56,10 +57,13 @@ const closeAboutPopup = () => {
         </li>
         <li>
           <a
-            class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors shadow-lg"
+            class="inline-flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors shadow-lg"
             href="https://ko-fi.com/jazibobs"
-            >Buy me a coffee</a
           >
+            <img src="@/assets/kofi.png" class="w-auto h-4" />
+            <span class="hidden md:inline">Buy me a coffee (tea)</span>
+            <span class="inline md:hidden">Thanks</span>
+          </a>
         </li>
       </ul>
     </nav>

@@ -37,9 +37,9 @@ const formattedTimeOffset = computed(() => {
 <template>
   <!-- Time adjustment controls -->
   <div
-    class="md:fixed mt-8 md:mt-0 bottom-28 left-0 right-0 z-50 flex flex-col gap-2 justify-center items-center"
+    class="md:fixed mt-8 md:mt-0 bottom-28 left-0 right-0 z-50 flex flex-col gap-2 justify-center items-center p-8"
   >
-    <div class="flex items-center gap-4">
+    <div class="flex flex-col md:flex-row items-center gap-4">
       <div class="flex items-center gap-2">
         <button
           @click="adjustTime(-1, 0)"
@@ -75,6 +75,8 @@ const formattedTimeOffset = computed(() => {
         Reset
       </button>
     </div>
-    <div class="text-gray-600 font-mono text-xs">Current offset: {{ formattedTimeOffset }}</div>
+    <div class="text-gray-600 font-mono text-xs mt-4 md:mt-2">
+      Current offset: {{ formattedTimeOffset }}
+    </div>
   </div>
 </template>
